@@ -16,7 +16,10 @@ class MeuHello extends StatelessWidget {
           child: ListView(
             children: [
               SizedBox(
-                  height: 300, child: Image.asset("assets/images/screen.png")),
+                  height: 200,
+                  child: Image.asset(
+                    "assets/images/screen.png",
+                  )),
               Container(
                 height: 50,
                 color: Colors.white,
