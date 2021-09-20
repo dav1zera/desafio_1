@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
         child: ListView(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             Image.asset(
               "assets/images/screen.png",
@@ -39,35 +39,37 @@ class _MyAppState extends State<MyApp> {
               height: 148,
             ),
             Container(
-              color: Colors.white,
+              padding: const EdgeInsets.only(right: 17.0, left: 13.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
               child: Column(
                 children: [
-                  Container(
-                    height: 50,
-                    color: Colors.white,
-                    child: Center(
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "E-mail",
-                          prefixIcon: Icon(Icons.email),
-                        ),
-                        keyboardType: TextInputType.name,
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "E-mail",
+                      hintStyle: GoogleFonts.ovo(
+                        fontSize: 15,
+                      ),
+                      icon: ImageIcon(
+                        AssetImage("assets/images/man.png"),
                       ),
                     ),
+                    keyboardType: TextInputType.name,
                   ),
-                  Container(
-                    height: 50,
-                    color: Colors.white,
-                    child: Center(
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Senha",
-                          prefixIcon: Icon(Icons.security),
-                        ),
-                        keyboardType: TextInputType.name,
-                        obscureText: true,
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Senha",
+                      hintStyle: GoogleFonts.ovo(
+                        fontSize: 15,
+                      ),
+                      icon: ImageIcon(
+                        AssetImage("assets/images/lock.png"),
                       ),
                     ),
+                    keyboardType: TextInputType.name,
+                    obscureText: true,
                   ),
                 ],
               ),
@@ -80,7 +82,7 @@ class _MyAppState extends State<MyApp> {
                 print("Oi");
               },
               child: Text(
-                "Login",
+                "Entrar",
                 style: GoogleFonts.neuton(
                   fontSize: 22,
                   textStyle: TextStyle(
@@ -96,7 +98,7 @@ class _MyAppState extends State<MyApp> {
                   )),
             ),
             SizedBox(
-              height: 28,
+              height: 16,
             ),
             ElevatedButton(
               onPressed: () {
