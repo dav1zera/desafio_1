@@ -26,107 +26,129 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF539FCB),
-      body: Padding(
+      body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: ListView(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.05,
-            ),
-            Image.asset(
-              "assets/images/screen.png",
-              width: 174,
-              height: 148,
-            ),
-            Container(
-              padding: const EdgeInsets.only(right: 17.0, left: 13.0),
-              decoration: BoxDecoration(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.05,
+          ),
+          Image.asset(
+            "assets/images/screen.png",
+            width: 174,
+            height: 148,
+          ),
+          Container(
+            height: 93.0,
+            padding: const EdgeInsets.only(right: 17.0, left: 13.0),
+            decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
-              ),
-              child: Column(
-                children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: "E-mail",
-                      hintStyle: GoogleFonts.ovo(
-                        fontSize: 15,
-                      ),
-                      icon: ImageIcon(
-                        AssetImage("assets/images/man.png"),
-                      ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.25),
+                    blurRadius: 4.0,
+                    spreadRadius: 0.0,
+                    offset: Offset(4.0, 4.0),
+                  )
+                ]),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
                     ),
-                    keyboardType: TextInputType.name,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: "Senha",
-                      hintStyle: GoogleFonts.ovo(
-                        fontSize: 15,
-                      ),
-                      icon: ImageIcon(
-                        AssetImage("assets/images/lock.png"),
-                      ),
+                    contentPadding: EdgeInsets.all(0.0),
+                    isDense: true,
+                    hintText: "E-mail",
+                    hintStyle: GoogleFonts.ovo(
+                      fontSize: 15,
                     ),
-                    keyboardType: TextInputType.name,
-                    obscureText: true,
+                    icon: ImageIcon(
+                      AssetImage("assets/images/man.png"),
+                    ),
                   ),
-                ],
+                  keyboardType: TextInputType.name,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    contentPadding: EdgeInsets.all(0.0),
+                    isDense: true,
+                    hintText: "Senha",
+                    hintStyle: GoogleFonts.ovo(
+                      fontSize: 15,
+                    ),
+                    icon: ImageIcon(
+                      AssetImage("assets/images/lock.png"),
+                    ),
+                  ),
+                  keyboardType: TextInputType.name,
+                  obscureText: true,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 28,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              print("Oi");
+            },
+            style: ElevatedButton.styleFrom(
+              fixedSize: Size(355, 42),
+              onPrimary: Color(0xFF5386CB),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
-            SizedBox(
-              height: 28,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                print("Oi");
-              },
-              child: Text(
-                "Entrar",
-                style: GoogleFonts.neuton(
-                  fontSize: 22,
-                  textStyle: TextStyle(
-                    color: Colors.white,
-                  ),
+            child: Text(
+              "Entrar",
+              style: GoogleFonts.neuton(
+                fontSize: 22,
+                textStyle: TextStyle(
+                  color: Colors.white,
                 ),
               ),
-              style: ElevatedButton.styleFrom(
-                  fixedSize: Size(355, 42),
-                  onPrimary: Color(0xFF5386CB),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  )),
             ),
-            SizedBox(
-              height: 16,
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              print("Oi");
+            },
+            style: ElevatedButton.styleFrom(
+              fixedSize: Size(355, 42),
+              onPrimary: Color(0xFF5386CB),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                print("Oi");
-              },
-              child: Text(
-                "Cadastrar",
-                style: GoogleFonts.neuton(
-                  fontSize: 22,
-                  textStyle: TextStyle(
-                    color: Colors.white,
-                  ),
+            child: Text(
+              "Cadastrar",
+              style: GoogleFonts.neuton(
+                fontSize: 22,
+                textStyle: TextStyle(
+                  color: Colors.white,
                 ),
               ),
-              style: ElevatedButton.styleFrom(
-                  fixedSize: Size(355, 42),
-                  onPrimary: Color(0xFF5386CB),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  )),
             ),
-            Image.asset(
-              "assets/images/urban.png",
-              width: 370,
-              height: 383,
-            ),
-          ],
-        ),
+          ),
+          Image.asset(
+            "assets/images/urban.png",
+            width: 370,
+            height: 383,
+          ),
+        ],
       ),
     );
   }
