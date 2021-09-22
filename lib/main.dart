@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -37,6 +39,9 @@ class _MyAppState extends State<MyApp> {
             width: 174,
             height: 148,
           ),
+          SizedBox(
+            height: 26,
+          ),
           Container(
             height: 93.0,
             padding: const EdgeInsets.only(right: 17.0, left: 13.0),
@@ -54,43 +59,78 @@ class _MyAppState extends State<MyApp> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextFormField(
-                  decoration: InputDecoration(
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: ImageIcon(
+                        AssetImage("assets/images/man.png"),
+                        color: Color(0xFF858585),
+                      ),
                     ),
-                    contentPadding: EdgeInsets.all(0.0),
-                    isDense: true,
-                    hintText: "E-mail",
-                    hintStyle: GoogleFonts.ovo(
-                      fontSize: 15,
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                            ),
+                          ),
+                          contentPadding: EdgeInsets.all(0.0),
+                          isDense: true,
+                          hintText: "E-mail",
+                          hintStyle: GoogleFonts.ovo(
+                            fontSize: 15,
+                          ),
+                        ),
+                        keyboardType: TextInputType.name,
+                      ),
                     ),
-                    icon: ImageIcon(
-                      AssetImage("assets/images/man.png"),
-                    ),
-                  ),
-                  keyboardType: TextInputType.name,
+                  ],
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: ImageIcon(
+                        AssetImage("assets/images/lock.png"),
+                        color: Color(0xFF858585),
+                      ),
                     ),
-                    contentPadding: EdgeInsets.all(0.0),
-                    isDense: true,
-                    hintText: "Senha",
-                    hintStyle: GoogleFonts.ovo(
-                      fontSize: 15,
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          isCollapsed: false,
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                            ),
+                          ),
+                          contentPadding: EdgeInsets.all(0),
+                          isDense: true,
+                          hintText: "Senha",
+                          hintStyle: GoogleFonts.ovo(
+                            fontSize: 15,
+                          ),
+                        ),
+                        keyboardType: TextInputType.name,
+                        obscureText: true,
+                      ),
                     ),
-                    icon: ImageIcon(
-                      AssetImage("assets/images/lock.png"),
-                    ),
-                  ),
-                  keyboardType: TextInputType.name,
-                  obscureText: true,
+                  ],
+                ),
+                Align(
+                  alignment: Alignment(1, -0.5),
+                  child: Text("Credenciais inválidas.",
+                      style: GoogleFonts.ovo(
+                        fontSize: 10,
+                        textStyle: TextStyle(
+                          color: Color(0xFFB30000),
+                        ),
+                      )),
                 ),
               ],
             ),
@@ -127,6 +167,7 @@ class _MyAppState extends State<MyApp> {
               print("Oi");
             },
             style: ElevatedButton.styleFrom(
+              shadowColor: Colors.black,
               fixedSize: Size(355, 42),
               onPrimary: Color(0xFF5386CB),
               shape: RoundedRectangleBorder(
