@@ -29,21 +29,40 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       backgroundColor: Color(0xFF539FCB),
       body: ListView(
+        physics: NeverScrollableScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
         children: [
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.05,
           ),
-          Image.asset(
-            "assets/images/screen.png",
-            width: 174,
-            height: 148,
+          Center(
+            child: Stack(
+              children: [
+                Opacity(
+                  opacity: 0.25,
+                  child: Image.asset(
+                    "assets/images/screen.png",
+                    color: Colors.black,
+                    width: 174,
+                    height: 148,
+                  ),
+                ),
+                BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
+                  child: Image.asset(
+                    "assets/images/screen.png",
+                    width: 168,
+                    height: 142,
+                  ),
+                ),
+              ],
+            ),
           ),
           SizedBox(
             height: 26,
           ),
           Container(
-            height: 93.0,
+            height: 85.0,
             padding: const EdgeInsets.only(right: 17.0, left: 13.0),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -59,6 +78,9 @@ class _MyAppState extends State<MyApp> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(
+                  height: 5,
+                ),
                 Row(
                   children: [
                     Padding(
@@ -89,7 +111,7 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 8,
                 ),
                 Row(
                   children: [
@@ -122,15 +144,18 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ],
                 ),
-                Align(
-                  alignment: Alignment(1, -0.5),
-                  child: Text("Credenciais inválidas.",
-                      style: GoogleFonts.ovo(
-                        fontSize: 10,
-                        textStyle: TextStyle(
-                          color: Color(0xFFB30000),
-                        ),
-                      )),
+                Padding(
+                  padding: const EdgeInsets.only(top: 3),
+                  child: Align(
+                    alignment: Alignment(1, 0),
+                    child: Text("Credenciais inválidas.",
+                        style: GoogleFonts.ovo(
+                          fontSize: 10,
+                          textStyle: TextStyle(
+                            color: Color(0xFFB30000),
+                          ),
+                        )),
+                  ),
                 ),
               ],
             ),
@@ -188,6 +213,7 @@ class _MyAppState extends State<MyApp> {
             "assets/images/urban.png",
             width: 370,
             height: 383,
+            alignment: Alignment.topCenter,
           ),
         ],
       ),
