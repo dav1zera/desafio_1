@@ -1,10 +1,19 @@
+import 'package:desafio_1/my_app_page.dart';
+import 'package:desafio_1/utils.dart';
 import 'package:desafio_1/widgets/text_form_field.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BoxForm extends StatelessWidget {
-  const BoxForm({Key? key}) : super(key: key);
+  final GlobalKey<FormState> formKey;
+
+  final Utils utils = Utils();
+
+  BoxForm({
+    Key? key,
+    required this.formKey,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +32,7 @@ class BoxForm extends StatelessWidget {
             )
           ]),
       child: Form(
+        key: formKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -32,6 +42,13 @@ class BoxForm extends StatelessWidget {
             CampText(
               text: "E-mail",
               image: "assets/images/man.png",
+              validator: (value) {
+                if (utils.isEmail(value)) {
+                  isValidEmail = true;
+                } else {
+                  isValidEmail = false;
+                }
+              },
             ),
             SizedBox(
               height: 8,
@@ -39,6 +56,13 @@ class BoxForm extends StatelessWidget {
             CampText(
               text: "Senha",
               image: "assets/images/lock.png",
+              validator: (value) {
+                if (utils.isPassword(value)) {
+                  isValidPasswd = true;
+                } else {
+                  isValidPasswd = false;
+                }
+              },
               obscureText: true,
             ),
             Padding(

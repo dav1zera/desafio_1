@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CampText extends StatelessWidget {
+  final FormFieldValidator<String>? validator;
   final String text;
   final String image;
   final bool obscureText;
 
-  const CampText({
+  CampText({
     Key? key,
     required this.text,
     required this.image,
+    this.validator,
     this.obscureText = false,
   }) : super(key: key);
 
@@ -26,6 +28,7 @@ class CampText extends StatelessWidget {
         ),
         Expanded(
           child: TextFormField(
+            validator: validator,
             obscureText: obscureText,
             decoration: InputDecoration(
               focusedBorder: UnderlineInputBorder(

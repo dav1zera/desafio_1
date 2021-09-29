@@ -4,8 +4,12 @@ import 'package:desafio_1/widgets/screen_image.dart';
 import 'package:desafio_1/widgets/urban_image.dart';
 import 'package:flutter/material.dart';
 
+bool isValidEmail = false;
+bool isValidPasswd = false;
+
 class MyAppPage extends StatefulWidget {
-  const MyAppPage({Key? key}) : super(key: key);
+  final formKey = GlobalKey<FormState>();
+  MyAppPage({Key? key}) : super(key: key);
 
   @override
   _MyAppPageState createState() => _MyAppPageState();
@@ -29,17 +33,18 @@ class _MyAppPageState extends State<MyAppPage> {
           SizedBox(
             height: 26,
           ),
-          BoxForm(),
+          BoxForm(
+            formKey: widget.formKey,
+          ),
           SizedBox(
             height: 28,
           ),
           CustomButton(
             text: "Login",
             onPressed: () {
-              int a = 1;
-              int b = 2;
-
-              print(a + b);
+              widget.formKey.currentState?.validate();
+              isValidEmail ? print("Email válido") : print("Email inválido");
+              isValidPasswd ? print("Senha válida") : print("Senha inválida");
             },
           ),
           SizedBox(
