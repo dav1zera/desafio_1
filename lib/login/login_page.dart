@@ -1,21 +1,21 @@
-import 'package:desafio_1/widgets/box_form.dart';
-import 'package:desafio_1/widgets/custom_button.dart';
-import 'package:desafio_1/widgets/screen_image.dart';
-import 'package:desafio_1/widgets/urban_image.dart';
+import 'package:desafio_1/login/widgets/box_form.dart';
+import 'package:desafio_1/commons/custom_button.dart';
+import 'package:desafio_1/commons/screen_image.dart';
+import 'package:desafio_1/login/widgets/urban_image.dart';
 import 'package:flutter/material.dart';
 
-bool isValidEmail = false;
-bool isValidPasswd = false;
+bool? isValidEmail;
+bool? isValidPasswd;
 
-class MyAppPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   final formKey = GlobalKey<FormState>();
-  MyAppPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
 
   @override
-  _MyAppPageState createState() => _MyAppPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _MyAppPageState extends State<MyAppPage> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,9 +42,9 @@ class _MyAppPageState extends State<MyAppPage> {
           CustomButton(
             text: "Login",
             onPressed: () {
-              widget.formKey.currentState?.validate();
-              isValidEmail ? print("Email válido") : print("Email inválido");
-              isValidPasswd ? print("Senha válida") : print("Senha inválida");
+              setState(() {
+                widget.formKey.currentState?.validate();
+              });
             },
           ),
           SizedBox(

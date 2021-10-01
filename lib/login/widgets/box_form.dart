@@ -1,6 +1,6 @@
-import 'package:desafio_1/my_app_page.dart';
-import 'package:desafio_1/utils.dart';
-import 'package:desafio_1/widgets/text_form_field.dart';
+import 'package:desafio_1/login/login_page.dart';
+import 'package:desafio_1/utils/utils.dart';
+import 'package:desafio_1/login/widgets/text_form_field.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,13 +42,7 @@ class BoxForm extends StatelessWidget {
             CampText(
               text: "E-mail",
               image: "assets/images/man.png",
-              validator: (value) {
-                if (utils.isEmail(value)) {
-                  isValidEmail = true;
-                } else {
-                  isValidEmail = false;
-                }
-              },
+              validator: validatorEmail,
             ),
             SizedBox(
               height: 8,
@@ -56,20 +50,14 @@ class BoxForm extends StatelessWidget {
             CampText(
               text: "Senha",
               image: "assets/images/lock.png",
-              validator: (value) {
-                if (utils.isPassword(value)) {
-                  isValidPasswd = true;
-                } else {
-                  isValidPasswd = false;
-                }
-              },
+              validator: validatorSenha,
               obscureText: true,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 3),
               child: Align(
                 alignment: Alignment(1, 0),
-                child: Text("Credenciais inválidas.",
+                child: Text(getStatusDescription(),
                     style: GoogleFonts.ovo(
                       fontSize: 10,
                       textStyle: TextStyle(
@@ -82,5 +70,29 @@ class BoxForm extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String? validatorSenha(String? value) {
+    if (utils.isPassword(value)) {
+      isValidPasswd = true;
+    } else {
+      isValidPasswd = false;
+    }
+  }
+
+  String? validatorEmail(String? value) {
+    if (utils.isEmail(value)) {
+      isValidEmail = true;
+    } else {
+      isValidEmail = false;
+    }
+  }
+
+  String getStatusDescription() {
+    return (isValidEmail == null || isValidPasswd == null)
+        ? " "
+        : isValidEmail! && isValidPasswd!
+            ? "Credenciais válidas."
+            : "Credenciais inválidas.";
   }
 }
