@@ -1,4 +1,4 @@
-import 'package:desafio_1/login/widgets/box_form.dart';
+import 'package:desafio_1/login/widgets/box_form_login.dart';
 import 'package:desafio_1/commons/custom_button.dart';
 import 'package:desafio_1/commons/screen_image.dart';
 import 'package:desafio_1/login/widgets/urban_image.dart';
@@ -9,6 +9,7 @@ bool? isValidPasswd;
 
 class LoginPage extends StatefulWidget {
   final formKey = GlobalKey<FormState>();
+
   LoginPage({Key? key}) : super(key: key);
 
   @override
@@ -33,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
           SizedBox(
             height: 26,
           ),
-          BoxForm(
+          BoxFormLogin(
             formKey: widget.formKey,
           ),
           SizedBox(
