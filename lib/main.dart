@@ -1,8 +1,8 @@
 import 'package:desafio_1/login/login_page.dart';
 import 'package:flutter/material.dart';
+import 'register/register_page.dart';
 
 //import 'login/login_page.dart';
-import 'register/register_page.dart';
 //Shift R = Reload completo da aplicação;
 
 void main() {

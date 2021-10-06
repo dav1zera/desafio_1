@@ -25,4 +25,11 @@ class Utils {
 
     return isValidPasswd;
   }
+
+  bool isName(String? name) {
+    if (name == null || name.isEmpty) {
+      return false;
+    }
+    return true;
+  }
 }
