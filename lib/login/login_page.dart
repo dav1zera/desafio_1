@@ -4,8 +4,8 @@ import 'package:desafio_1/commons/screen_image.dart';
 import 'package:desafio_1/login/widgets/urban_image.dart';
 import 'package:flutter/material.dart';
 
-bool? isValidEmail;
-bool? isValidPasswd;
+bool? isValidEmailLogin;
+bool? isValidPasswdLogin;
 
 class LoginPage extends StatefulWidget {
   final formKey = GlobalKey<FormState>();

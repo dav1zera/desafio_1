@@ -58,24 +58,24 @@ class BoxFormLogin extends StatelessWidget {
 
   String? validatorSenha(String? value) {
     if (utils.isPassword(value)) {
-      isValidPasswd = true;
+      isValidPasswdLogin = true;
     } else {
-      isValidPasswd = false;
+      isValidPasswdLogin = false;
     }
   }
 
   String? validatorEmail(String? value) {
     if (utils.isEmail(value)) {
-      isValidEmail = true;
+      isValidEmailLogin = true;
     } else {
-      isValidEmail = false;
+      isValidEmailLogin = false;
     }
   }
 
   String getStatusDescription() {
-    return (isValidEmail == null || isValidPasswd == null)
+    return (isValidEmailLogin == null || isValidPasswdLogin == null)
         ? " "
-        : isValidEmail! && isValidPasswd!
+        : isValidEmailLogin! && isValidPasswdLogin!
             ? "Credenciais válidas."
             : "Credenciais inválidas.";
   }

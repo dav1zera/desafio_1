@@ -7,9 +7,9 @@ import 'package:desafio_1/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-bool? isValidEmail;
-bool? isValidPasswd;
-bool? isValidName;
+bool? isValidEmailRegister;
+bool? isValidPasswdRegister;
+bool? isValidNameRegister;
 
 class RegisterPage extends StatefulWidget {
   final double? height;
@@ -32,6 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       backgroundColor: Color(0xFF539FCB),
       body: ListView(
+        physics: NeverScrollableScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
         children: [
           SizedBox(
@@ -46,8 +47,12 @@ class _RegisterPageState extends State<RegisterPage> {
           Text("Cadastro",
               style: GoogleFonts.neuton(
                 fontSize: 30,
+                fontStyle: FontStyle.normal,
                 color: Colors.white,
               )),
+          SizedBox(
+            height: 1,
+          ),
           BoxFormRegister(
             formKey: widget.formKey,
           ),
