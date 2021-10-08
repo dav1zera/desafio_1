@@ -20,7 +20,7 @@ class BoxFormRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContainerBox(
-      height: 125.0,
+      height: 123.0,
       formKey: formKey,
       children: [
         SizedBox(
@@ -30,10 +30,16 @@ class BoxFormRegister extends StatelessWidget {
           text: "Nome",
           image: "assets/images/name.png",
         ),
+        SizedBox(
+          height: 8,
+        ),
         CampText(
           text: "Email",
           image: "assets/images/mail.png",
           validator: validatorEmail,
+        ),
+        SizedBox(
+          height: 8,
         ),
         CampText(
           text: "Senha",

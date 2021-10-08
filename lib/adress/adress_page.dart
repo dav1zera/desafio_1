@@ -1,32 +1,27 @@
+import 'package:desafio_1/adress/widgets/box_form_adress.dart';
 import 'package:desafio_1/commons/custom_button.dart';
 import 'package:desafio_1/commons/screen_image.dart';
-import 'package:desafio_1/login/widgets/box_form_login.dart';
 import 'package:desafio_1/login/widgets/urban_image.dart';
-import 'package:desafio_1/register/widgets/box_form_register.dart';
 import 'package:desafio_1/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-bool? isValidEmailRegister;
-bool? isValidPasswdRegister;
-bool? isValidNameRegister;
-
-class RegisterPage extends StatefulWidget {
+class AdressPage extends StatefulWidget {
   final double? height;
   final formKey = GlobalKey<FormState>();
 
   final Utils utils = Utils();
 
-  RegisterPage({
+  AdressPage({
     Key? key,
     this.height,
   }) : super(key: key);
 
   @override
-  _RegisterPageState createState() => _RegisterPageState();
+  _AdressPageState createState() => _AdressPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _AdressPageState extends State<AdressPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,36 +41,29 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20.0),
-            child: Text("Cadastro",
-                style: GoogleFonts.neuton(
-                    fontSize: 30,
-                    fontStyle: FontStyle.normal,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold)),
-          ),
-          SizedBox(
-            height: 1,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 17.0, left: 13.0),
-            child: BoxFormRegister(
-              formKey: widget.formKey,
+            child: Text(
+              "Endereço",
+              style: GoogleFonts.neuton(
+                  fontSize: 30,
+                  fontStyle: FontStyle.normal,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
             ),
+          ),
+          BoxFormAdress(
+            formKey: widget.formKey,
           ),
           SizedBox(
             height: 20.0,
           ),
           CustomButton(
-            text: "Próximo",
-            onPressed: () {
-              setState(() {
-                widget.formKey.currentState?.validate();
-              });
-            },
-          ),
-          UrbanImage(
-            image: "assets/images/urban.png",
-          )
+              text: "Finalizar",
+              onPressed: () {
+                setState(() {
+                  print("Oi");
+                });
+              }),
+          UrbanImage(image: "assets/images/urban.png")
         ],
       ),
     );

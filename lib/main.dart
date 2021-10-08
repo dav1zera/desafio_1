@@ -1,3 +1,4 @@
+import 'package:desafio_1/adress/adress_page.dart';
 import 'package:desafio_1/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'register/register_page.dart';
@@ -13,7 +14,7 @@ class MeuHello extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: RegisterPage(),
+      home: AdressPage(),
     );
   }
 }

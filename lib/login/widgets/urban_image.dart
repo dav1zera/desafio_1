@@ -14,7 +14,7 @@ class UrbanImage extends StatelessWidget {
       child: Image.asset(
         "assets/images/urban.png",
         width: 370,
-        height: 383,
+        height: 390,
         //alignment: Alignment.topCenter,
       ),
     );

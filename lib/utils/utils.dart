@@ -29,7 +29,7 @@ class Utils {
   }
 
   bool isName(String? name) {
-    if (name == null || name.isEmpty) {
+    if (name == null || name.isEmpty && name.length <= 2) {
       return false;
     }
     bool isValidName = RegExp('[a-zA-Z]').hasMatch(name);
