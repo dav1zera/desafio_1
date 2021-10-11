@@ -1,6 +1,6 @@
 import 'package:desafio_1/commons/container_box.dart';
 import 'package:desafio_1/login/login_page.dart';
-import 'package:desafio_1/login/widgets/text_form_field.dart';
+import 'package:desafio_1/commons/text_form_field.dart';
 import 'package:desafio_1/register/register_page.dart';
 import 'package:desafio_1/utils/utils.dart';
 

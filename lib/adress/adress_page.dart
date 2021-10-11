@@ -1,3 +1,4 @@
+import 'package:desafio_1/adress/data/adress_repository.dart';
 import 'package:desafio_1/adress/widgets/box_form_adress.dart';
 import 'package:desafio_1/commons/custom_button.dart';
 import 'package:desafio_1/commons/screen_image.dart';
@@ -40,7 +41,7 @@ class _AdressPageState extends State<AdressPage> {
             height: 26,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20.0),
+            padding: const EdgeInsets.only(left: 8.0),
             child: Text(
               "Endereço",
               style: GoogleFonts.neuton(
@@ -60,7 +61,7 @@ class _AdressPageState extends State<AdressPage> {
               text: "Finalizar",
               onPressed: () {
                 setState(() {
-                  print("Oi");
+                  AdressRepository().getAdress();
                 });
               }),
           UrbanImage(image: "assets/images/urban.png")

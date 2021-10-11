@@ -32,6 +32,7 @@ class ContainerBox extends StatelessWidget {
         key: formKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: children,
         ),
       ),

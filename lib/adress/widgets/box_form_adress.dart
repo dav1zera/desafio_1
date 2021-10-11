@@ -1,4 +1,5 @@
 import 'package:desafio_1/commons/container_box.dart';
+import 'package:desafio_1/commons/text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class BoxFormAdress extends StatelessWidget {
@@ -14,7 +15,56 @@ class BoxFormAdress extends StatelessWidget {
     return ContainerBox(
       formKey: formKey,
       height: 140.0,
-      children: [],
+      children: [
+        SizedBox(
+          height: 5,
+        ),
+        CampText(
+          width: MediaQuery.of(context).size.width * 0.3,
+          text: "CEP",
+        ),
+        SizedBox(
+          height: 8,
+        ),
+        Row(
+          children: [
+            CampText(
+              width: MediaQuery.of(context).size.width * 0.6,
+              text: "Rua",
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Expanded(
+              child: CampText(text: "Num"),
+            )
+          ],
+        ),
+        SizedBox(
+          height: 8,
+        ),
+        Row(
+          children: [
+            CampText(
+              width: MediaQuery.of(context).size.width * 0.5,
+              text: "Bairro",
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Expanded(
+              child: CampText(text: "Complemento"),
+            )
+          ],
+        ),
+        SizedBox(
+          height: 8,
+        ),
+        CampText(
+          width: MediaQuery.of(context).size.width * 0.6,
+          text: "Cidade",
+        )
+      ],
     );
   }
 }
