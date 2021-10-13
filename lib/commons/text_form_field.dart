@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CampText extends StatelessWidget {
   final FormFieldValidator<String>? validator;
+  final TextEditingController? controller;
   final String text;
   final String? image;
   final bool obscureText;
@@ -16,6 +17,7 @@ class CampText extends StatelessWidget {
     this.width,
     this.image,
     this.validator,
+    this.controller,
     this.obscureText = false,
   }) : super(key: key);
 
@@ -36,6 +38,7 @@ class CampText extends StatelessWidget {
             ),
           Expanded(
             child: TextFormField(
+              controller: controller,
               validator: validator,
               obscureText: obscureText,
               decoration: InputDecoration(

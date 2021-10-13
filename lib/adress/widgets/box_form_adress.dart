@@ -1,3 +1,4 @@
+import 'package:desafio_1/adress/adress_page.dart';
 import 'package:desafio_1/commons/container_box.dart';
 import 'package:desafio_1/commons/text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,7 @@ class BoxFormAdress extends StatelessWidget {
         CampText(
           width: MediaQuery.of(context).size.width * 0.3,
           text: "CEP",
+          controller: cepTextController,
         ),
         SizedBox(
           height: 8,
@@ -31,6 +33,7 @@ class BoxFormAdress extends StatelessWidget {
             CampText(
               width: MediaQuery.of(context).size.width * 0.6,
               text: "Rua",
+              controller: ruaTextController,
             ),
             SizedBox(
               width: 10,
@@ -48,6 +51,7 @@ class BoxFormAdress extends StatelessWidget {
             CampText(
               width: MediaQuery.of(context).size.width * 0.5,
               text: "Bairro",
+              controller: bairroTextController,
             ),
             SizedBox(
               width: 10,
@@ -63,6 +67,7 @@ class BoxFormAdress extends StatelessWidget {
         CampText(
           width: MediaQuery.of(context).size.width * 0.6,
           text: "Cidade",
+          controller: cidadeTextController,
         )
       ],
     );
