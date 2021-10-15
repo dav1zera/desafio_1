@@ -2,18 +2,14 @@ import 'package:desafio_1/commons/custom_button.dart';
 import 'package:desafio_1/commons/screen_image.dart';
 import 'package:desafio_1/login/widgets/box_form_login.dart';
 import 'package:desafio_1/login/widgets/urban_image.dart';
+import 'package:desafio_1/register/register_controller.dart';
 import 'package:desafio_1/register/widgets/box_form_register.dart';
 import 'package:desafio_1/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-bool? isValidEmailRegister;
-bool? isValidPasswdRegister;
-bool? isValidNameRegister;
-
 class RegisterPage extends StatefulWidget {
   final double? height;
-  final formKey = GlobalKey<FormState>();
 
   final Utils utils = Utils();
 
@@ -27,6 +23,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final controller = RegisterController();
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +57,8 @@ class _RegisterPageState extends State<RegisterPage> {
           Padding(
             padding: const EdgeInsets.only(right: 17.0, left: 13.0),
             child: BoxFormRegister(
-              formKey: widget.formKey,
+              formKey: formKey,
+              controller: controller,
             ),
           ),
           SizedBox(
@@ -69,7 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
             text: "Próximo",
             onPressed: () {
               setState(() {
-                widget.formKey.currentState?.validate();
+                formKey.currentState?.validate();
               });
             },
           ),

@@ -1,4 +1,5 @@
-import 'package:desafio_1/adress/remote/adress_repository.dart';
+import 'package:desafio_1/adress/andress_controller.dart';
+
 import 'package:desafio_1/adress/widgets/box_form_adress.dart';
 import 'package:desafio_1/commons/custom_button.dart';
 import 'package:desafio_1/commons/screen_image.dart';
@@ -7,16 +8,8 @@ import 'package:desafio_1/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-TextEditingController ruaTextController = TextEditingController();
-TextEditingController cepTextController = TextEditingController();
-TextEditingController bairroTextController = TextEditingController();
-TextEditingController cidadeTextController = TextEditingController();
-TextEditingController numTextController = TextEditingController();
-TextEditingController compleTextController = TextEditingController();
-
 class AdressPage extends StatefulWidget {
   final double? height;
-  final formKey = GlobalKey<FormState>();
 
   final Utils utils = Utils();
 
@@ -30,24 +23,20 @@ class AdressPage extends StatefulWidget {
 }
 
 class _AdressPageState extends State<AdressPage> {
+  final controller = AdressController();
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF539FCB),
-      body: FutureBuilder<dynamic>(
-          future: AdressRepository().getAdress(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
+      body: ValueListenableBuilder(
+          valueListenable: controller.isLoading,
+          builder: (context, bool isloading, child) {
+            if (isloading == true) {
               return Center(
                   child: CircularProgressIndicator(color: Colors.red));
             }
-            if (snapshot.hasData) {
-              //Map <String, dynamic> data = snapshot.data;
-              cepTextController.text = snapshot.data["cep"];
-              ruaTextController.text = snapshot.data["logradouro"];
-              bairroTextController.text = snapshot.data["bairro"];
-              cidadeTextController.text = snapshot.data["localidade"];
-            }
+
             return ListView(
               physics: NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -73,19 +62,17 @@ class _AdressPageState extends State<AdressPage> {
                   ),
                 ),
                 BoxFormAdress(
-                  formKey: widget.formKey,
+                  formKey: formKey,
+                  controller: controller,
                 ),
                 SizedBox(
                   height: 20.0,
                 ),
                 CustomButton(
-                    text: "Finalizar",
-                    onPressed: () {
-                      setState(() {
-                        AdressRepository().getAdress();
-                      });
-                    }),
-                UrbanImage(image: "assets/images/urban.png")
+                  text: "Finalizar",
+                  onPressed: controller.callAdressRepository,
+                ),
+                UrbanImage(image: "assets/images/urban.png"),
               ],
             );
           }),

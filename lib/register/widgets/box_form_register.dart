@@ -1,18 +1,20 @@
 import 'package:desafio_1/commons/container_box.dart';
-import 'package:desafio_1/login/login_page.dart';
+
 import 'package:desafio_1/commons/text_form_field.dart';
-import 'package:desafio_1/register/register_page.dart';
+import 'package:desafio_1/register/register_controller.dart';
+
 import 'package:desafio_1/utils/utils.dart';
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class BoxFormRegister extends StatelessWidget {
   final GlobalKey<FormState> formKey;
+  final RegisterController controller;
 
   BoxFormRegister({
     Key? key,
     required this.formKey,
+    required this.controller,
   }) : super(key: key);
 
   final Utils utils = Utils();
@@ -53,25 +55,25 @@ class BoxFormRegister extends StatelessWidget {
 
   String? validatorEmail(String? value) {
     if (utils.isEmail(value)) {
-      isValidEmailRegister = true;
+      controller.isValidEmailRegister = true;
     } else {
-      isValidEmailRegister = false;
+      controller.isValidEmailRegister = false;
     }
   }
 
   String? validatorSenha(String? value) {
     if (utils.isPassword(value)) {
-      isValidPasswdRegister = true;
+      controller.isValidPasswdRegister = true;
     } else {
-      isValidPasswdRegister = false;
+      controller.isValidPasswdRegister = false;
     }
   }
 
   String? validatorName(String? value) {
     if (utils.isName(value)) {
-      isValidNameRegister = true;
+      controller.isValidNameRegister = true;
     } else {
-      isValidNameRegister = false;
+      controller.isValidNameRegister = false;
     }
   }
 }

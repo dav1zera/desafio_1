@@ -1,4 +1,5 @@
 import 'package:desafio_1/commons/container_box.dart';
+import 'package:desafio_1/login/login_controller.dart';
 import 'package:desafio_1/login/login_page.dart';
 import 'package:desafio_1/utils/utils.dart';
 import 'package:desafio_1/commons/text_form_field.dart';
@@ -8,11 +9,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class BoxFormLogin extends StatelessWidget {
   final GlobalKey<FormState> formKey;
-
   final Utils utils = Utils();
+  final LoginController controller;
 
   BoxFormLogin({
     Key? key,
+    required this.controller,
     required this.formKey,
   }) : super(key: key);
 
@@ -58,24 +60,25 @@ class BoxFormLogin extends StatelessWidget {
 
   String? validatorSenha(String? value) {
     if (utils.isPassword(value)) {
-      isValidPasswdLogin = true;
+      controller.isValidPasswdLogin = true;
     } else {
-      isValidPasswdLogin = false;
+      controller.isValidPasswdLogin = false;
     }
   }
 
   String? validatorEmail(String? value) {
     if (utils.isEmail(value)) {
-      isValidEmailLogin = true;
+      controller.isValidEmailLogin = true;
     } else {
-      isValidEmailLogin = false;
+      controller.isValidEmailLogin = false;
     }
   }
 
   String getStatusDescription() {
-    return (isValidEmailLogin == null || isValidPasswdLogin == null)
+    return (controller.isValidEmailLogin == null ||
+            controller.isValidPasswdLogin == null)
         ? " "
-        : isValidEmailLogin! && isValidPasswdLogin!
+        : controller.isValidEmailLogin! && controller.isValidPasswdLogin!
             ? "Credenciais válidas."
             : "Credenciais inválidas.";
   }

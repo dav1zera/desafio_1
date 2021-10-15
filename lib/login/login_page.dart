@@ -1,3 +1,4 @@
+import 'package:desafio_1/login/login_controller.dart';
 import 'package:desafio_1/login/widgets/box_form_login.dart';
 import 'package:desafio_1/commons/custom_button.dart';
 import 'package:desafio_1/commons/screen_image.dart';
@@ -5,12 +6,7 @@ import 'package:desafio_1/login/widgets/urban_image.dart';
 import 'package:desafio_1/register/register_page.dart';
 import 'package:flutter/material.dart';
 
-bool? isValidEmailLogin;
-bool? isValidPasswdLogin;
-
 class LoginPage extends StatefulWidget {
-  final formKey = GlobalKey<FormState>();
-
   LoginPage({Key? key}) : super(key: key);
 
   @override
@@ -18,6 +14,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final controller = LoginController();
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +34,8 @@ class _LoginPageState extends State<LoginPage> {
             height: 26,
           ),
           BoxFormLogin(
-            formKey: widget.formKey,
+            formKey: formKey,
+            controller: controller,
           ),
           SizedBox(
             height: 28,
@@ -45,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
             text: "Login",
             onPressed: () {
               setState(() {
-                widget.formKey.currentState?.validate();
+                formKey.currentState?.validate();
               });
               navigateRegisterPage();
             },
@@ -66,10 +65,10 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void navigateRegisterPage() {
-    if (isValidEmailLogin != null &&
-        isValidEmailLogin! &&
-        isValidPasswdLogin != null &&
-        isValidPasswdLogin!) {
+    if (controller.isValidEmailLogin != null &&
+        controller.isValidEmailLogin! &&
+        controller.isValidPasswdLogin != null &&
+        controller.isValidPasswdLogin!) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => RegisterPage()));
     }

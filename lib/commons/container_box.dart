@@ -5,7 +5,7 @@ class ContainerBox extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final double height;
 
-  const ContainerBox(
+  ContainerBox(
       {Key? key,
       required this.children,
       required this.formKey,
