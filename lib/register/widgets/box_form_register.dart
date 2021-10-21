@@ -17,8 +17,6 @@ class BoxFormRegister extends StatelessWidget {
     required this.controller,
   }) : super(key: key);
 
-  final Utils utils = Utils();
-
   @override
   Widget build(BuildContext context) {
     return ContainerBox(
@@ -31,6 +29,8 @@ class BoxFormRegister extends StatelessWidget {
         CampText(
           text: "Nome",
           image: "assets/images/name.png",
+          validator: controller.validatorName,
+          controller: controller.nameRegisterTextController,
         ),
         SizedBox(
           height: 8,
@@ -38,7 +38,8 @@ class BoxFormRegister extends StatelessWidget {
         CampText(
           text: "Email",
           image: "assets/images/mail.png",
-          validator: validatorEmail,
+          validator: controller.validatorEmail,
+          controller: controller.emailRegisterTextController,
         ),
         SizedBox(
           height: 8,
@@ -46,34 +47,11 @@ class BoxFormRegister extends StatelessWidget {
         CampText(
           text: "Senha",
           image: "assets/images/lock.png",
-          validator: validatorSenha,
+          validator: controller.validatorSenha,
           obscureText: true,
+          controller: controller.passwdRegisterTextController,
         ),
       ],
     );
-  }
-
-  String? validatorEmail(String? value) {
-    if (utils.isEmail(value)) {
-      controller.isValidEmailRegister = true;
-    } else {
-      controller.isValidEmailRegister = false;
-    }
-  }
-
-  String? validatorSenha(String? value) {
-    if (utils.isPassword(value)) {
-      controller.isValidPasswdRegister = true;
-    } else {
-      controller.isValidPasswdRegister = false;
-    }
-  }
-
-  String? validatorName(String? value) {
-    if (utils.isName(value)) {
-      controller.isValidNameRegister = true;
-    } else {
-      controller.isValidNameRegister = false;
-    }
   }
 }

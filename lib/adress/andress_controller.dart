@@ -1,5 +1,6 @@
 import 'package:desafio_1/adress/remote/adress_repository.dart';
 import 'package:flutter/material.dart';
+//final FirebaseAuth auth;
 
 class AdressController {
   TextEditingController ruaTextController = TextEditingController();
@@ -10,16 +11,28 @@ class AdressController {
   TextEditingController compleTextController = TextEditingController();
 
   final ValueNotifier<bool> isLoading = ValueNotifier(false);
+  bool hasError = false;
 
   callAdressRepository() async {
     isLoading.value = true;
-    final resultCep =
-        await AdressRepository().getAdress(cepTextController.text);
+    try {
+      final resultCep =
+          await AdressRepository().getAdress(cepTextController.text);
+      cepTextController.text = resultCep.cep;
+      ruaTextController.text = resultCep.logradouro;
+      bairroTextController.text = resultCep.bairro;
+      cidadeTextController.text = resultCep.localidade;
+    } catch (e) {
+      hasError = true;
+    }
 
-    cepTextController.text = resultCep.cep;
-    ruaTextController.text = resultCep.logradouro;
-    bairroTextController.text = resultCep.bairro;
-    cidadeTextController.text = resultCep.localidade;
     isLoading.value = false;
+  }
+
+  void onChangedCep(String value) {
+    final cep = value.replaceAll(RegExp("[^0-9]"), '');
+    if (cep.length == 8) {
+      callAdressRepository();
+    }
   }
 }

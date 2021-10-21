@@ -4,7 +4,9 @@ import 'package:desafio_1/commons/custom_button.dart';
 import 'package:desafio_1/commons/screen_image.dart';
 import 'package:desafio_1/login/widgets/urban_image.dart';
 import 'package:desafio_1/register/register_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -46,7 +48,6 @@ class _LoginPageState extends State<LoginPage> {
               setState(() {
                 formKey.currentState?.validate();
               });
-              navigateRegisterPage();
             },
           ),
           SizedBox(
@@ -54,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           CustomButton(
             text: "Cadastrar",
-            onPressed: () {},
+            onPressed: () => controller.navigateRegisterPage(context),
           ),
           UrbanImage(
             image: "assets/images/urban.png",
@@ -62,15 +63,5 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
     );
-  }
-
-  void navigateRegisterPage() {
-    if (controller.isValidEmailLogin != null &&
-        controller.isValidEmailLogin! &&
-        controller.isValidPasswdLogin != null &&
-        controller.isValidPasswdLogin!) {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => RegisterPage()));
-    }
   }
 }

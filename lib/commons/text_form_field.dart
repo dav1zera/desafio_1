@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CampText extends StatelessWidget {
   final FormFieldValidator<String>? validator;
+  final ValueChanged<String>? onChanged;
   final TextEditingController? controller;
+  final List<TextInputFormatter>? inputFormatters;
+  final GestureTapCallback? onTap;
+
   final String text;
   final String? image;
   final bool obscureText;
@@ -13,6 +18,9 @@ class CampText extends StatelessWidget {
   CampText({
     Key? key,
     required this.text,
+    this.onTap,
+    this.inputFormatters,
+    this.onChanged,
     this.height,
     this.width,
     this.image,
@@ -38,6 +46,10 @@ class CampText extends StatelessWidget {
             ),
           Expanded(
             child: TextFormField(
+              style: GoogleFonts.ovo(fontSize: 15),
+              onTap: onTap,
+              inputFormatters: inputFormatters,
+              onChanged: onChanged,
               controller: controller,
               validator: validator,
               obscureText: obscureText,

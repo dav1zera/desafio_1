@@ -1,10 +1,10 @@
-import 'package:desafio_1/adress/adress_page.dart';
 import 'package:desafio_1/adress/andress_controller.dart';
 import 'package:desafio_1/commons/container_box.dart';
 import 'package:desafio_1/commons/text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class BoxFormAdress extends StatelessWidget {
+class BoxFormAdress extends StatefulWidget {
   final GlobalKey<FormState> formKey;
   final AdressController controller;
 
@@ -15,9 +15,17 @@ class BoxFormAdress extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<BoxFormAdress> createState() => _BoxFormAdressState();
+}
+
+class _BoxFormAdressState extends State<BoxFormAdress> {
+  var maskFormatterCep = new MaskTextInputFormatter(
+      mask: '#####-###', filter: {"#": RegExp(r'[0-9]')});
+
+  @override
   Widget build(BuildContext context) {
     return ContainerBox(
-      formKey: formKey,
+      formKey: widget.formKey,
       height: 140.0,
       children: [
         SizedBox(
@@ -26,7 +34,14 @@ class BoxFormAdress extends StatelessWidget {
         CampText(
           width: MediaQuery.of(context).size.width * 0.3,
           text: "CEP",
-          controller: controller.cepTextController,
+          controller: widget.controller.cepTextController,
+          onChanged: widget.controller.onChangedCep,
+          inputFormatters: [maskFormatterCep],
+          onTap: () {
+            setState(() {
+              widget.controller.hasError = false;
+            });
+          },
         ),
         SizedBox(
           height: 8,
@@ -36,7 +51,7 @@ class BoxFormAdress extends StatelessWidget {
             CampText(
               width: MediaQuery.of(context).size.width * 0.6,
               text: "Rua",
-              controller: controller.ruaTextController,
+              controller: widget.controller.ruaTextController,
             ),
             SizedBox(
               width: 10,
@@ -54,7 +69,7 @@ class BoxFormAdress extends StatelessWidget {
             CampText(
               width: MediaQuery.of(context).size.width * 0.5,
               text: "Bairro",
-              controller: controller.bairroTextController,
+              controller: widget.controller.bairroTextController,
             ),
             SizedBox(
               width: 10,
@@ -70,8 +85,18 @@ class BoxFormAdress extends StatelessWidget {
         CampText(
           width: MediaQuery.of(context).size.width * 0.6,
           text: "Cidade",
-          controller: controller.cidadeTextController,
-        )
+          controller: widget.controller.cidadeTextController,
+        ),
+        SizedBox(
+          height: 4,
+        ),
+        if (widget.controller.hasError)
+          Text(
+            "Cep inválido",
+            style: TextStyle(
+              color: Colors.red,
+            ),
+          )
       ],
     );
   }

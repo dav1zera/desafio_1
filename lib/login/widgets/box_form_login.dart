@@ -1,11 +1,11 @@
 import 'package:desafio_1/commons/container_box.dart';
 import 'package:desafio_1/login/login_controller.dart';
-import 'package:desafio_1/login/login_page.dart';
 import 'package:desafio_1/utils/utils.dart';
 import 'package:desafio_1/commons/text_form_field.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class BoxFormLogin extends StatelessWidget {
   final GlobalKey<FormState> formKey;

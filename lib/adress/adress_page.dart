@@ -70,7 +70,7 @@ class _AdressPageState extends State<AdressPage> {
                 ),
                 CustomButton(
                   text: "Finalizar",
-                  onPressed: controller.callAdressRepository,
+                  onPressed: () {},
                 ),
                 UrbanImage(image: "assets/images/urban.png"),
               ],

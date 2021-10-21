@@ -20,7 +20,7 @@ class ResultCep {
   factory ResultCep.fromJson(String str) => ResultCep.fromMap(json.decode(str));
 
   factory ResultCep.fromMap(Map<String, dynamic> json) => ResultCep(
-        cep: json["cep"] ?? "",
+        cep: json["cep"],
         logradouro: json["logradouro"] ?? "",
         complemento: json["complemento"] ?? "",
         bairro: json["bairro"] ?? "",
