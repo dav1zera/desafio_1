@@ -1,9 +1,14 @@
-import 'package:desafio_1/register/entities/user_register.dart';
+/*
+Controller => onde ocorre toda a lógica e validação dos campos
+*/
+
+import 'package:desafio_1/commons/user_register.dart';
 import 'package:desafio_1/register/remote/register_repository.dart';
 import 'package:desafio_1/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 
 class RegisterController {
   bool isValidEmailRegister = false;
@@ -28,14 +33,19 @@ class RegisterController {
     isValidNameRegister = utils.isName(value);
   }
 
-  callRegisterRepository() {
+  callRegisterRepository(context) async {
     if (isValidEmailRegister && isValidPasswdRegister && isValidNameRegister) {
-      final user = UserRegister(
+      final user = UserData (
         name: nameRegisterTextController.text,
         email: emailRegisterTextController.text,
         password: passwdRegisterTextController.text,
       );
-      repository.createUserEmail(user);
-    }
+      final isRegisted = await repository.createUserEmail(user);
+      final snackBar = SnackBar(content: Text(isRegisted ? "Registrado com sucesso" : "Falha no registro"));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+      }
   }
-}
+}  
+
+ 

@@ -1,4 +1,4 @@
-import 'package:desafio_1/register/entities/user_register.dart';
+import 'package:desafio_1/commons/user_register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterRepository {
@@ -8,5 +8,20 @@ class RegisterRepository {
     required this.auth,
   });
 
-  createUserEmail(UserRegister user) {}
-}
+  Future <bool> createUserEmail(UserData user ) async {
+    try {
+      UserCredential userCredential = await auth.createUserWithEmailAndPassword(email: user.email, password: user.password );
+      print(auth.currentUser);
+      await userCredential.user!.updateDisplayName(user.name);
+       print(auth.currentUser);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+}     
+    
+
+
+    
+

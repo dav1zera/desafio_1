@@ -1,6 +1,5 @@
 import 'package:desafio_1/commons/custom_button.dart';
 import 'package:desafio_1/commons/screen_image.dart';
-import 'package:desafio_1/login/widgets/box_form_login.dart';
 import 'package:desafio_1/login/widgets/urban_image.dart';
 import 'package:desafio_1/register/register_controller.dart';
 import 'package:desafio_1/register/widgets/box_form_register.dart';
@@ -21,6 +20,8 @@ class RegisterPage extends StatefulWidget {
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
+
+
 
 class _RegisterPageState extends State<RegisterPage> {
   final controller = RegisterController();
@@ -59,6 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
             child: BoxFormRegister(
               formKey: formKey,
               controller: controller,
+
             ),
           ),
           SizedBox(
@@ -67,9 +69,12 @@ class _RegisterPageState extends State<RegisterPage> {
           CustomButton(
             text: "Próximo",
             onPressed: () {
+              
               setState(() {
                 formKey.currentState?.validate();
-              });
+               }); 
+               controller.callRegisterRepository(context);
+              
             },
           ),
           UrbanImage(

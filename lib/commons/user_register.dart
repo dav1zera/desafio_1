@@ -1,10 +1,10 @@
-class UserRegister {
-  final String name;
+class UserData {
+  final String? name;
   final String email;
   final String password;
 
-  UserRegister({
-    required this.name,
+  UserData({
+    this.name,
     required this.email,
     required this.password,
   });
