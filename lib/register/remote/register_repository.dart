@@ -1,4 +1,4 @@
-import 'package:desafio_1/commons/user_register.dart';
+import 'package:desafio_1/commons/entities/user_register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterRepository {

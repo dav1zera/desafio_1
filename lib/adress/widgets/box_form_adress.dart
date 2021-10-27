@@ -1,6 +1,6 @@
 import 'package:desafio_1/adress/andress_controller.dart';
-import 'package:desafio_1/commons/container_box.dart';
-import 'package:desafio_1/commons/text_form_field.dart';
+import 'package:desafio_1/commons/widgets/container_box.dart';
+import 'package:desafio_1/commons/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 

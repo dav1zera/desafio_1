@@ -1,8 +1,8 @@
 import 'package:desafio_1/adress/andress_controller.dart';
 
 import 'package:desafio_1/adress/widgets/box_form_adress.dart';
-import 'package:desafio_1/commons/custom_button.dart';
-import 'package:desafio_1/commons/screen_image.dart';
+import 'package:desafio_1/commons/widgets/custom_button.dart';
+import 'package:desafio_1/commons/widgets/screen_image.dart';
 import 'package:desafio_1/login/widgets/urban_image.dart';
 import 'package:desafio_1/utils/utils.dart';
 import 'package:flutter/material.dart';

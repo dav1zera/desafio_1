@@ -1,5 +1,5 @@
-import 'package:desafio_1/commons/custom_button.dart';
-import 'package:desafio_1/commons/screen_image.dart';
+import 'package:desafio_1/commons/widgets/custom_button.dart';
+import 'package:desafio_1/commons/widgets/screen_image.dart';
 import 'package:desafio_1/login/widgets/urban_image.dart';
 import 'package:desafio_1/register/register_controller.dart';
 import 'package:desafio_1/register/widgets/box_form_register.dart';
@@ -73,8 +73,8 @@ class _RegisterPageState extends State<RegisterPage> {
               setState(() {
                 formKey.currentState?.validate();
                }); 
-               controller.callRegisterRepository(context);
-              
+               controller.onTapRegister(context);
+               
             },
           ),
           UrbanImage(
