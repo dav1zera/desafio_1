@@ -3,6 +3,7 @@ import 'package:desafio_1/login/remote/login_repository.dart';
 import 'package:desafio_1/main.dart';
 import 'package:desafio_1/register/register_page.dart';
 import 'package:desafio_1/utils/utils.dart';
+import 'package:desafio_1/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -36,13 +37,7 @@ class LoginController {
       if (isLogged) {
         controllerSession.userInfo = userInfo;
         Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => Scaffold(
-              body: Center(
-                child: Text("Olá ${controllerSession.userInfo!.name}"),
-              ),
-            ),
-          ),
+          MaterialPageRoute(builder: (context) => WelcomePage()),
         );
       }
     }

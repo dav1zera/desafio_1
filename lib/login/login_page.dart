@@ -2,10 +2,8 @@ import 'package:desafio_1/login/login_controller.dart';
 import 'package:desafio_1/login/widgets/box_form_login.dart';
 import 'package:desafio_1/commons/widgets/custom_button.dart';
 import 'package:desafio_1/commons/widgets/screen_image.dart';
-import 'package:desafio_1/login/widgets/urban_image.dart';
+import 'package:desafio_1/commons/widgets/urban_image.dart';
 import 'package:flutter/material.dart';
-
-
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -37,7 +35,6 @@ class _LoginPageState extends State<LoginPage> {
           BoxFormLogin(
             formKey: formKey,
             controller: controller,
-
           ),
           SizedBox(
             height: 28,
