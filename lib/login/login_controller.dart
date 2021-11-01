@@ -44,7 +44,10 @@ class LoginController {
   }
 
   void navigateRegisterPage(context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => RegisterPage()));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => RegisterPage(),
+      ),
+    );
   }
 }

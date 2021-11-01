@@ -2,16 +2,14 @@ import 'package:desafio_1/commons/widgets/container_box.dart';
 import 'package:desafio_1/login/login_controller.dart';
 import 'package:desafio_1/utils/utils.dart';
 import 'package:desafio_1/commons/widgets/text_form_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class BoxFormLogin extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final Utils utils = Utils();
   final LoginController controller;
- 
 
   BoxFormLogin({
     Key? key,
@@ -33,7 +31,6 @@ class BoxFormLogin extends StatelessWidget {
           image: "assets/images/man.png",
           validator: validatorEmail,
           controller: controller.emailLoginTextController,
-          
         ),
         SizedBox(
           height: 8,
