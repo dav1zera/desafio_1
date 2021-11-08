@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:desafio_1/adress/entities/adress_entity.dart';
+import 'package:desafio_1/commons/entities/adress_entity.dart';
 import 'package:desafio_1/adress/entities/result_cep.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
