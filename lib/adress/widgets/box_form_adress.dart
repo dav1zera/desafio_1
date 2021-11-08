@@ -57,7 +57,10 @@ class _BoxFormAdressState extends State<BoxFormAdress> {
               width: 10,
             ),
             Expanded(
-              child: CampText(text: "Num"),
+              child: CampText(
+                text: "Num",
+                controller: widget.controller.numTextController,
+              ),
             )
           ],
         ),
@@ -75,7 +78,10 @@ class _BoxFormAdressState extends State<BoxFormAdress> {
               width: 10,
             ),
             Expanded(
-              child: CampText(text: "Complemento"),
+              child: CampText(
+                text: "Complemento",
+                controller: widget.controller.compleTextController,
+              ),
             )
           ],
         ),

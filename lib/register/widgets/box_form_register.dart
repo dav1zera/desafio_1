@@ -3,8 +3,6 @@ import 'package:desafio_1/commons/widgets/container_box.dart';
 import 'package:desafio_1/commons/widgets/text_form_field.dart';
 import 'package:desafio_1/register/register_controller.dart';
 
-import 'package:desafio_1/utils/utils.dart';
-
 import 'package:flutter/material.dart';
 
 class BoxFormRegister extends StatelessWidget {

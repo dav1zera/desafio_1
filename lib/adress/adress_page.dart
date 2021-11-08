@@ -1,4 +1,5 @@
 import 'package:desafio_1/adress/andress_controller.dart';
+import 'package:desafio_1/commons/entities/adress_entity.dart';
 
 import 'package:desafio_1/adress/widgets/box_form_adress.dart';
 import 'package:desafio_1/commons/widgets/custom_button.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdressPage extends StatefulWidget {
+  final String userId;
   final double? height;
 
   final Utils utils = Utils();
@@ -16,6 +18,7 @@ class AdressPage extends StatefulWidget {
   AdressPage({
     Key? key,
     this.height,
+    required this.userId,
   }) : super(key: key);
 
   @override
@@ -25,6 +28,13 @@ class AdressPage extends StatefulWidget {
 class _AdressPageState extends State<AdressPage> {
   final controller = AdressController();
   final formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    controller.userId = widget.userId;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +80,9 @@ class _AdressPageState extends State<AdressPage> {
                 ),
                 CustomButton(
                   text: "Finalizar",
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.onTapRegisterAdress(context);
+                  },
                 ),
                 UrbanImage(image: "assets/images/urban.png"),
               ],

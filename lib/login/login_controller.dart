@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:desafio_1/adress/entities/result_cep.dart';
+import 'package:desafio_1/commons/entities/user_info.dart';
 import 'package:desafio_1/commons/entities/user_register.dart';
 import 'package:desafio_1/login/remote/login_repository.dart';
 import 'package:desafio_1/main.dart';
@@ -35,7 +38,7 @@ class LoginController {
           content: Text(isLogged ? "Logado com sucesso" : "Falha no login"));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       if (isLogged) {
-        controllerSession.userInfo = userInfo;
+        sessionStore.userInfo = userInfo;
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => WelcomePage()),
         );

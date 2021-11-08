@@ -8,20 +8,16 @@ class RegisterRepository {
     required this.auth,
   });
 
-  Future <bool> createUserEmail(UserData user ) async {
+  Future<String?> createUserEmail(UserData user) async {
     try {
-      UserCredential userCredential = await auth.createUserWithEmailAndPassword(email: user.email, password: user.password );
-      print(auth.currentUser);
+      UserCredential userCredential = await auth.createUserWithEmailAndPassword(
+          email: user.email, password: user.password);
+
       await userCredential.user!.updateDisplayName(user.name);
-       print(auth.currentUser);
-      return true;
+
+      return auth.currentUser!.uid;
     } catch (_) {
-      return false;
+      return null;
     }
   }
-}     
-    
-
-
-    
-
+}

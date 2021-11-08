@@ -2,6 +2,7 @@
 Controller => onde ocorre toda a lógica e validação dos campos
 */
 
+import 'package:desafio_1/adress/adress_page.dart';
 import 'package:desafio_1/commons/entities/user_register.dart';
 import 'package:desafio_1/login/login_page.dart';
 import 'package:desafio_1/register/register_page.dart';
@@ -10,7 +11,6 @@ import 'package:desafio_1/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 class RegisterController {
   bool isValidEmailRegister = false;
@@ -37,22 +37,27 @@ class RegisterController {
 
   onTapRegister(context) async {
     if (isValidEmailRegister && isValidPasswdRegister && isValidNameRegister) {
-      final user = UserData (
+      final user = UserData(
         name: nameRegisterTextController.text,
         email: emailRegisterTextController.text,
         password: passwdRegisterTextController.text,
       );
-      final isRegisted = await repository.createUserEmail(user);
-      final snackBar = SnackBar(content: Text(isRegisted ? "Registrado com sucesso" : "Falha no registro"));
+      final userId = await repository.createUserEmail(user);
+      final snackBar = SnackBar(
+        content: Text(
+            userId != null ? "Registrado com sucesso" : "Falha no registro"),
+      );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
-      if (isRegisted) {
-        Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => LoginPage()));
+      if (userId != null) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => AdressPage(
+              userId: userId,
+            ),
+          ),
+        );
       }
-      }
-      
+    }
   }
-}  
-
- 
+}

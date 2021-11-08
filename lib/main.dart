@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 //Shift R = Reload completo da aplicação;
 
-ControllerSession controllerSession = ControllerSession();
+ControllerSession sessionStore = ControllerSession();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

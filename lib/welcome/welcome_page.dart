@@ -1,22 +1,25 @@
 import 'package:desafio_1/commons/widgets/custom_button.dart';
 import 'package:desafio_1/main.dart';
+import 'package:desafio_1/utils/utils.dart';
 import 'package:desafio_1/welcome/welcome_controller.dart';
-import 'package:desafio_1/welcome/widgets/container_box_welcome.dart';
+import 'package:desafio_1/welcome/widgets/box_form_welcome.dart';
 import 'package:desafio_1/welcome/widgets/profile_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomePage extends StatefulWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+  WelcomePage({Key? key}) : super(key: key);
+  final Utils utils = Utils();
 
   @override
   _WelcomePageState createState() => _WelcomePageState();
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  WelcomeController controller = WelcomeController();
   @override
   Widget build(BuildContext context) {
+    WelcomeController controller = WelcomeController();
+    final formKey = GlobalKey<FormState>();
     return Scaffold(
       backgroundColor: Color(0xFF539FCB),
       body: ListView(
@@ -31,7 +34,7 @@ class _WelcomePageState extends State<WelcomePage> {
           ),
           Center(
             child: Text(
-              "Olá ${controllerSession.userInfo!.name}",
+              "Olá ${sessionStore.userInfo!.name}",
               style: GoogleFonts.neuton(
                   fontSize: 30,
                   fontStyle: FontStyle.normal,
@@ -53,7 +56,9 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
             ),
           ),
-          ContainerBoxWelcome(),
+          BoxFormWelcome(
+            formKey: formKey,
+          ),
           SizedBox(
             height: 10,
           ),
