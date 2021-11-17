@@ -4,8 +4,6 @@ Controller => onde ocorre toda a lógica e validação dos campos
 
 import 'package:desafio_1/adress/adress_page.dart';
 import 'package:desafio_1/commons/entities/user_register.dart';
-import 'package:desafio_1/login/login_page.dart';
-import 'package:desafio_1/register/register_page.dart';
 import 'package:desafio_1/register/remote/register_repository.dart';
 import 'package:desafio_1/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
