@@ -1,12 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:desafio_1/adress/entities/result_cep.dart';
-import 'package:desafio_1/commons/entities/user_info.dart';
 import 'package:desafio_1/commons/entities/user_register.dart';
 import 'package:desafio_1/login/remote/login_repository.dart';
 import 'package:desafio_1/main.dart';
 import 'package:desafio_1/register/register_page.dart';
+import 'package:desafio_1/splash/splash_page.dart';
+
 import 'package:desafio_1/utils/utils.dart';
-import 'package:desafio_1/welcome/welcome_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -34,14 +33,17 @@ class LoginController {
           password: passowordLoginTextController.text);
       final userInfo = await repository.loginWithEmail(user);
       final isLogged = userInfo != null;
-      final snackBar = SnackBar(
-          content: Text(isLogged ? "Logado com sucesso" : "Falha no login"));
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
       if (isLogged) {
         sessionStore.userInfo = userInfo;
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => WelcomePage()),
+          MaterialPageRoute(builder: (context) => SplashPage()),
         );
+      } else {
+        final snackBar = SnackBar(
+          content: Text("Falha no login"),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     }
   }
