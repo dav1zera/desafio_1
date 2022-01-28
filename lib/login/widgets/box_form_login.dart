@@ -46,13 +46,15 @@ class BoxFormLogin extends StatelessWidget {
           padding: const EdgeInsets.only(top: 3),
           child: Align(
             alignment: Alignment(1, 0),
-            child: Text(getStatusDescription(),
-                style: GoogleFonts.ovo(
-                  fontSize: 10,
-                  textStyle: TextStyle(
-                    color: Color(0xFFB30000),
-                  ),
-                )),
+            child: Text(
+              getStatusDescription(),
+              style: GoogleFonts.ovo(
+                fontSize: 10,
+                textStyle: TextStyle(
+                  color: Color(0xFFB30000),
+                ),
+              ),
+            ),
           ),
         ),
       ],

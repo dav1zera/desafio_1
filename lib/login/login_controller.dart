@@ -3,11 +3,11 @@ import 'package:desafio_1/login/remote/login_repository.dart';
 import 'package:desafio_1/main.dart';
 import 'package:desafio_1/register/register_page.dart';
 import 'package:desafio_1/splash/splash_page.dart';
-
 import 'package:desafio_1/utils/utils.dart';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+
 
 class LoginController {
   bool isValidEmailLogin = false;

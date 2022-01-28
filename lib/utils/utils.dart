@@ -1,7 +1,5 @@
 //Minhas Funções para uso no app
 
-import 'package:desafio_1/register/register_page.dart';
-
 class Utils {
   bool isEmail(String? string) {
     if (string == null || string.isEmpty) {
