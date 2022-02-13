@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\davia\\Documents\\flutter_app\\desafio_1\\build\\cloud_firestore\\intermediates\\res\\merged\\release\\color\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\davia\\.gradle\\caches\\transforms-2\\files-2.1\\4a5d212196d7d8924a7584d3647bdb71\\jetified-play-services-base-17.0.0\\res\\color\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\davia\\Documents\\flutter_app\\desafio_1\\build\\cloud_firestore\\intermediates\\res\\merged\\release\\color\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\davia\\.gradle\\caches\\transforms-2\\files-2.1\\4a5d212196d7d8924a7584d3647bdb71\\jetified-play-services-base-17.0.0\\res\\color\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\davia\\Documents\\flutter_app\\desafio_1\\build\\cloud_firestore\\intermediates\\res\\merged\\release\\color\\common_google_signin_btn_tint.xml",
+        "source": "C:\\Users\\davia\\.gradle\\caches\\transforms-2\\files-2.1\\4a5d212196d7d8924a7584d3647bdb71\\jetified-play-services-base-17.0.0\\res\\color\\common_google_signin_btn_tint.xml"
+    }
+]
