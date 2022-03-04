@@ -7,7 +7,7 @@ import 'package:desafio_1/commons/entities/user_register.dart';
 import 'package:desafio_1/register/remote/register_repository.dart';
 import 'package:desafio_1/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 class RegisterController {
