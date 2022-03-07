@@ -55,12 +55,16 @@ class AdressController {
           await adressRepository.registerAdressFirestore(adress, userId!);
 
       final snackBar = SnackBar(
-          content: Text(result ? "Cadastro com sucesso" : "Falha no cadastro"));
+        content: Text(result ? "Cadastro com sucesso" : "Falha no cadastro"),
+      );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
       if (result) {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => LoginPage()));
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => LoginPage(),
+          ),
+        );
       }
     } else {
       final snackBar = SnackBar(
